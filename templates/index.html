@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management System</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            color: white;
+            padding: 20px;
+            margin: 0;
+            font-size: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+        }
+
+        form {
+            width: 350px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        button {
+            background: linear-gradient(to right, #36d1dc, #5b86e5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+        }
+
+        th {
+            background: #ff416c;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            text-align: center;
+            padding: 10px;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        tr:hover {
+            background: #dff9fb;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h1>🎓 Student Management System</h1>
+
+<form action="/add" method="post">
+    <input type="text" name="name" placeholder="Enter Name" required>
+    <input type="email" name="email" placeholder="Enter Email" required>
+    <input type="text" name="course" placeholder="Enter Course" required>
+    <br>
+    <button type="submit">➕ Add Student</button>
+</form>
+
+<h2>📋 Student List</h2>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Course</th>
+</tr>
+
+{% for s in students %}
+<tr>
+    <td>{{ s[0] }}</td>
+    <td>{{ s[1] }}</td>
+    <td>{{ s[2] }}</td>
+    <td>{{ s[3] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
